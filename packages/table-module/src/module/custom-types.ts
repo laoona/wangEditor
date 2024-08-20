@@ -24,5 +24,6 @@ export type TableRowElement = {
 export type TableElement = {
   type: 'table'
   width: string
+  tableColumnWidth?: '270' | '480'
   children: TableRowElement[]
 }

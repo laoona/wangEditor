@@ -7,7 +7,11 @@ import { Element } from 'slate'
 import { TableCellElement, TableRowElement, TableElement } from './custom-types'
 
 function tableToHtml(elemNode: Element, childrenHtml: string): string {
-  const { width = 'auto' } = elemNode as TableElement
+  const { width = 'auto', tableColumnWidth } = elemNode as TableElement
+
+  if (tableColumnWidth) {
+    return `<table data-table-column-width="${tableColumnWidth}" style="width: ${width};"><tbody>${childrenHtml}</tbody></table>`
+  }
 
   return `<table style="width: ${width};"><tbody>${childrenHtml}</tbody></table>`
 }

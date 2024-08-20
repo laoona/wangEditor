@@ -18,6 +18,7 @@ import {
   deleteTableColConf,
   tableHeaderMenuConf,
   tableFullWidthMenuConf,
+  tableColumn270MenuConf,
 } from './menu/index'
 
 const table: Partial<IModuleConf> = {
@@ -34,6 +35,7 @@ const table: Partial<IModuleConf> = {
     deleteTableColConf,
     tableHeaderMenuConf,
     tableFullWidthMenuConf,
+    tableColumn270MenuConf,
   ],
   editorPlugin: withTable,
 }

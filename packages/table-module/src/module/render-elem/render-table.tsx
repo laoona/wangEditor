@@ -46,7 +46,7 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
   const editable = getContentEditable(editor, elemNode)
 
   // 宽度
-  const { width = 'auto' } = elemNode as TableElement
+  const { width = 'auto', tableColumnWidth } = elemNode as TableElement
 
   // 是否选中
   const selected = DomEditor.isNodeSelected(editor, elemNode)
@@ -80,7 +80,7 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
         },
       }}
     >
-      <table width={width} contentEditable={editable}>
+      <table data-table-column-width={tableColumnWidth} width={width} contentEditable={editable}>
         <colgroup>
           {firstRowCells.map(cell => {
             const { width = 'auto' } = cell

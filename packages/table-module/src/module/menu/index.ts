@@ -11,6 +11,7 @@ import InsertCol from './InsertCol'
 import DeleteCol from './DeleteCol'
 import TableHander from './TableHeader'
 import FullWidth from './FullWidth'
+import Column270 from './Column270'
 
 export const insertTableMenuConf = {
   key: 'insertTable',
@@ -65,5 +66,12 @@ export const tableFullWidthMenuConf = {
   key: 'tableFullWidth',
   factory() {
     return new FullWidth()
+  },
+}
+
+export const tableColumn270MenuConf = {
+  key: 'tableColumn270',
+  factory() {
+    return new Column270()
   },
 }

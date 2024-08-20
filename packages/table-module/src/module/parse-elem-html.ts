@@ -70,6 +70,9 @@ function parseTableHtml(
 ): TableElement {
   const $elem = $(elem)
 
+  const tableColumnWidth = ($elem.attr('data-table-column-width') ||
+    undefined) as TableElement['tableColumnWidth']
+
   // 计算宽度
   let width = 'auto'
   if (getStyleValue($elem, 'width') === '100%') width = '100%'
@@ -78,6 +81,7 @@ function parseTableHtml(
   return {
     type: 'table',
     width,
+    tableColumnWidth,
     // @ts-ignore
     children: children.filter(child => DomEditor.getNodeType(child) === 'table-row'),
   }
