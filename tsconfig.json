@@ -22,6 +22,7 @@
     "allowJs": true
   },
   "exclude": [
+    "node_modules",
     "build",
     "__tests__"
   ],

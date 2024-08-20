@@ -16,7 +16,6 @@ class TableColumn270 implements IButtonMenu {
   readonly tag = 'button'
 
   // 是否已设置 宽度自适应
-  // @ts-ignore
   getValue(editor: IDomEditor): boolean {
     const tableNode = DomEditor.getSelectedNodeByType(editor, 'table')
     console.log(tableNode, '111')
@@ -42,8 +41,7 @@ class TableColumn270 implements IButtonMenu {
     return false
   }
 
-  // @ts-ignore
-  exec(editor: IDomEditor, value: TableElement['tableColumnWidth']) {
+  exec(editor: IDomEditor, value: string | boolean) {
     if (this.isDisabled(editor)) return
 
     const props: Partial<TableElement> = {
