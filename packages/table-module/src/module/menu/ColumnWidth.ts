@@ -7,25 +7,54 @@
  */
 
 import { Transforms, Range } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
-// import { FULL_WIDTH_SVG } from '../../constants/svg'
+import { IDomEditor, DomEditor, t, ISelectMenu, IOption } from '@wangeditor/core'
 import { TableElement } from '../custom-types'
 
-class TableColumnWidth implements IButtonMenu {
-  readonly title = '270'
-  readonly tag = 'button'
+class TableColumnWidth implements ISelectMenu {
+  readonly title = '表格列宽'
+  readonly tag = 'select'
+  readonly width = 90
 
+  getOptions(editor: IDomEditor): IOption[] {
+    // 生成 options
+    const options: IOption[] = [
+      {
+        text: '默认列宽',
+        value: '', // this.getValue(editor) 未找到结果时，会返回 '' ，正好对应到这里
+      },
+      {
+        text: '270',
+        value: '270',
+      },
+      {
+        text: '480',
+        value: '480',
+      },
+    ]
+
+    // 设置 selected
+    const curValue = this.getValue(editor)
+
+    options.forEach(opt => {
+      if (opt.value === curValue) {
+        opt.selected = true
+      } else {
+        delete opt.selected
+      }
+    })
+
+    return options
+  }
   // 是否已设置 宽度自适应
-  getValue(editor: IDomEditor): boolean {
+  getValue(editor: IDomEditor): string {
     const tableNode = DomEditor.getSelectedNodeByType(editor, 'table')
-    console.log(tableNode, '111')
-    if (tableNode == null) return false
+    if (tableNode == null) return ''
 
-    return (tableNode as TableElement).tableColumnWidth === '270'
+    return ((tableNode as TableElement).tableColumnWidth || '') as string
   }
 
   isActive(editor: IDomEditor): boolean {
-    return this.getValue(editor)
+    return false
   }
 
   isDisabled(editor: IDomEditor): boolean {
@@ -45,7 +74,7 @@ class TableColumnWidth implements IButtonMenu {
     if (this.isDisabled(editor)) return
 
     const props: Partial<TableElement> = {
-      tableColumnWidth: value ? undefined : '270',
+      tableColumnWidth: (value || '') as TableElement['tableColumnWidth'],
     }
     Transforms.setNodes(editor, props, { mode: 'highest' })
   }
