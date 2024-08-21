@@ -11,7 +11,7 @@ import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
 // import { FULL_WIDTH_SVG } from '../../constants/svg'
 import { TableElement } from '../custom-types'
 
-class TableColumn270 implements IButtonMenu {
+class TableColumnWidth implements IButtonMenu {
   readonly title = '270'
   readonly tag = 'button'
 
@@ -51,4 +51,4 @@ class TableColumn270 implements IButtonMenu {
   }
 }
 
-export default TableColumn270
+export default TableColumnWidth

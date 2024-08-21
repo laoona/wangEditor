@@ -26,7 +26,7 @@ const COMMON_HOVERBAR_KEYS = {
       'enter',
       'tableHeader',
       'tableFullWidth',
-      'tableColumn270',
+      'tableColumnWidth',
       'insertTableRow',
       'deleteTableRow',
       'insertTableCol',
