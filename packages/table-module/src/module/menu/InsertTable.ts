@@ -37,7 +37,7 @@ function genTableNode(rowNum: number, colNum: number): TableElement {
   return {
     type: 'table',
     width: 'auto',
-    tableColumnWidth: '480',
+    tableColumnWidth: '',
     children: rows,
   }
 }

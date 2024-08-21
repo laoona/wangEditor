@@ -71,7 +71,7 @@ function parseTableHtml(
   const $elem = $(elem)
 
   const tableColumnWidth = ($elem.attr('data-table-column-width') ||
-    undefined) as TableElement['tableColumnWidth']
+    '') as TableElement['tableColumnWidth']
 
   // 计算宽度
   let width = 'auto'

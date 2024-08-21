@@ -46,7 +46,7 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
   const editable = getContentEditable(editor, elemNode)
 
   // 宽度
-  const { width = 'auto', tableColumnWidth } = elemNode as TableElement
+  const { width = 'auto', tableColumnWidth = '' } = elemNode as TableElement
 
   // 是否选中
   const selected = DomEditor.isNodeSelected(editor, elemNode)

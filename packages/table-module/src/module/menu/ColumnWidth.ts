@@ -14,7 +14,6 @@ class TableColumnWidth implements ISelectMenu {
   readonly title = '表格列宽'
   readonly tag = 'select'
   readonly width = 90
-
   getOptions(editor: IDomEditor): IOption[] {
     // 生成 options
     const options: IOption[] = [
