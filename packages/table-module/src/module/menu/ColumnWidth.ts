@@ -13,20 +13,20 @@ import { TableElement } from '../custom-types'
 class TableColumnWidth implements ISelectMenu {
   readonly title = '表格列宽'
   readonly tag = 'select'
-  readonly width = 90
+  readonly width = 78
   getOptions(editor: IDomEditor): IOption[] {
     // 生成 options
     const options: IOption[] = [
       {
-        text: '默认列宽',
+        text: '非横滑',
         value: '', // this.getValue(editor) 未找到结果时，会返回 '' ，正好对应到这里
       },
       {
-        text: '270',
+        text: '横滑270',
         value: '270',
       },
       {
-        text: '480',
+        text: '横滑480',
         value: '480',
       },
     ]
